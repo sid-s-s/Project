@@ -1,0 +1,77 @@
+create table userregistration
+(
+serialno number primary key,
+firstname varchar2(30),
+lastname varchar2(30),
+username varchar2(30),
+password varchar2(30),
+mobileno number(10),
+email varchar2(30)
+);
+
+----------------------------------------------------------------  
+
+create table automobileloan(serialno number,
+username varchar2(30),
+nominee varchar2(30),
+pan varchar2(30),
+vehicle number,
+vehicletype varchar2(30),
+address varchar2(300),
+amount number(7));
+
+alter table automobileloan
+add foreign key (serialno) references userregistration(serialno);
+
+-----------------------------------------------------------------
+    
+create table educationalloan(
+serialno number not null,
+username varchar2(30),
+studentname varchar2(30),
+collegename varchar2(30),
+coladdress varchar2(300),
+course varchar2(30),
+duration number,
+pan varchar2(10),
+address varchar2(300),
+amount number(7));
+
+
+alter table educationalloan
+add foreign key (serialno) references userregistration(serialno);
+
+----------------------------------------------------------------
+
+create table homeloan(
+serialno number not null,
+username varchar2(30),
+nominee varchar2(30),
+pan varchar2(10),
+propertylocation varchar2(30),
+address varchar2(300),
+amount number(7));
+
+ 
+
+alter table homeloan
+add foreign key (serialno) references userregistration(serialno);
+
+--------------------------------------------------------------
+
+create table personalloan(
+serialno number,
+username varchar2(30),
+nominee varchar2(30),
+pan varchar2(30),
+address varchar2(300),
+amount number(7));
+
+alter table personalloan
+add foreign key(serialno) references userregistration(serialno);
+
+
+
+
+
+
